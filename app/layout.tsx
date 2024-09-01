@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import StyledComponentsRegistry from "@/components/StyledComponentRegistry";
 import GlobalStyles from "@/components/GlobalStyles";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={manrope.variable}>
         <StyledComponentsRegistry>
           <GlobalStyles />
           {children}
