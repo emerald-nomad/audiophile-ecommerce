@@ -31,7 +31,7 @@ export const IconsWrapper = styled.div`
 
   @media ${mediaQueries.lgAndUp} {
     justify-content: space-between;
-    margin: 0 5rem;
+    margin: 0 13rem;
   }
 `;
 
@@ -63,6 +63,7 @@ export const LogoIconWrapper = styled.div`
 
   @media ${mediaQueries.lgAndUp} {
     margin: 0;
+    flex: 1;
   }
 `;
 
@@ -72,6 +73,8 @@ export const NavigationWrapper = styled.nav`
   @media ${mediaQueries.lgAndUp} {
     display: flex;
     gap: 1rem;
+    flex: 1;
+    justify-content: center;
 
     & a {
       transition: 0.3s;
@@ -93,4 +96,9 @@ export const NavigationWrapper = styled.nav`
 export const CartIconWrapper = styled.div`
   display: flex;
   cursor: pointer;
+
+  @media ${mediaQueries.lgAndUp} {
+    justify-content: end;
+    flex: 1;
+  }
 `;
