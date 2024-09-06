@@ -31,7 +31,7 @@ export const IconsWrapper = styled.div`
 
   @media ${mediaQueries.lgAndUp} {
     justify-content: space-between;
-    margin: 0 13rem;
+    margin: 0 15vw;
   }
 `;
 
@@ -72,7 +72,7 @@ export const NavigationWrapper = styled.nav`
 
   @media ${mediaQueries.lgAndUp} {
     display: flex;
-    gap: 1rem;
+    gap: 2.75rem;
     flex: 1;
     justify-content: center;
 

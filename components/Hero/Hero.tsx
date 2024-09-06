@@ -8,13 +8,13 @@ export function Hero() {
   return (
     <HeroWrapper>
       <HeroContent>
-        <p className="overline">New Product</p>
+        <p className="subtext">New Product</p>
         <p className="product-name">XX99 Mark II HeadphoneS</p>
         <p className="product-description">
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Button type="filled" as={Link} href="/">
+        <Button type="filled" as={Link} href="/headphones">
           See Product
         </Button>
       </HeroContent>
