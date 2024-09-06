@@ -5,13 +5,13 @@ import styled, { css } from "styled-components";
 
 export const Button = styled.button<{ type: "filled" | "outline" | "clear" }>`
   background-color: var(--color-white);
-  font-size: ${pxToRem(13)}rem;
+  font-size: ${pxToRem(13)};
   font-weight: bold;
-  letter-spacing: ${pxToRem(1)}rem;
+  letter-spacing: ${pxToRem(1)};
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  padding: 1rem 1.75rem;
+  padding: 1rem 2.5rem;
   transition: 0.3s;
 
   ${(props) =>

@@ -82,9 +82,9 @@ export const NavigationWrapper = styled.nav`
       text-decoration: none;
       text-transform: uppercase;
       font-weight: bold;
-      font-size: ${pxToRem(13)}rem;
-      line-height: ${pxToRem(25)}rem;
-      letter-spacing: ${pxToRem(2)}rem;
+      font-size: ${pxToRem(13)};
+      line-height: ${pxToRem(25)};
+      letter-spacing: ${pxToRem(2)};
 
       &:hover {
         color: var(--color-pumpkin);

@@ -12,7 +12,7 @@ export default createGlobalStyle`
         --color-off-white: hsl(0, 0%, 98%);
         --color-black: hsl(0, 0%, 0%);
         --color-off-black: hsl(0, 0%, 6%);
-        --color-grey: hsl(0, 0%, 95%);
+        --color-grey: #979797;
 
         
         font-size: ${DEFAULT_FONT_SIZE_IN_PX}px;
@@ -43,39 +43,39 @@ export default createGlobalStyle`
 
     h1 {
         
-        letter-spacing: ${pxToRem(2)}rem;
-        line-height: ${pxToRem(58)}rem;
-        font-size: ${pxToRem(56)}rem;
+        letter-spacing: ${pxToRem(2)};
+        line-height: ${pxToRem(58)};
+        font-size: ${pxToRem(56)};
     }
 
     h2 {
-        font-size: ${pxToRem(40)}rem;
-        line-height: ${pxToRem(44)}rem;
-        letter-spacing: ${pxToRem(1.5)}rem;
+        font-size: ${pxToRem(40)};
+        line-height: ${pxToRem(44)};
+        letter-spacing: ${pxToRem(1.5)};
     }
 
     h3 {
-        font-size: ${pxToRem(32)}rem;
-        line-height: ${pxToRem(36)}rem;
-        letter-spacing: ${pxToRem(1.15)}rem;
+        font-size: ${pxToRem(32)};
+        line-height: ${pxToRem(36)};
+        letter-spacing: ${pxToRem(1.15)};
     }
 
     h4 {
-        font-size: ${pxToRem(28)}rem;
-        line-height: ${pxToRem(38)}rem;
-        letter-spacing: ${pxToRem(2)}rem;
+        font-size: ${pxToRem(28)};
+        line-height: ${pxToRem(38)};
+        letter-spacing: ${pxToRem(2)};
     }
 
     h5 {
-        font-size: ${pxToRem(24)}rem;
-        line-height: ${pxToRem(33)}rem;
-        letter-spacing: ${pxToRem(1.7)}rem;
+        font-size: ${pxToRem(24)};
+        line-height: ${pxToRem(33)};
+        letter-spacing: ${pxToRem(1.7)};
     }
 
     h6 {
-        font-size: ${pxToRem(18)}rem;
-        line-height: ${pxToRem(24)}rem;
-        letter-spacing: ${pxToRem(1.3)}rem;
+        font-size: ${pxToRem(18)};
+        line-height: ${pxToRem(24)};
+        letter-spacing: ${pxToRem(1.3)};
     }
 
     .overline, 
@@ -85,20 +85,24 @@ export default createGlobalStyle`
 
     .overline {
         text-transform: uppercase;
-        font-size: ${pxToRem(14)}rem;
-        line-height: ${pxToRem(19)}rem;
-        letter-spacing: ${pxToRem(10)}rem;
+        font-size: ${pxToRem(14)};
+        line-height: ${pxToRem(19)};
+        letter-spacing: ${pxToRem(10)};
     }
 
     .sub-title {
-        font-size: ${pxToRem(13)}rem;
-        line-height: ${pxToRem(25)}rem;
-        letter-spacing: ${pxToRem(1)}rem;
+        font-size: ${pxToRem(13)};
+        line-height: ${pxToRem(25)};
+        letter-spacing: ${pxToRem(1)};
     }
 
     body {
         font-size: 1rem;
-        line-height: ${pxToRem(25)}rem;
+        line-height: ${pxToRem(25)};
         font-weight: 500;
+    }
+
+    a {
+        text-decoration: none;
     }
 `;

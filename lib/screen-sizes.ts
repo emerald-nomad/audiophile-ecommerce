@@ -1,3 +1,5 @@
+import { pxToRem } from "./css-helpers";
+
 export const screenSizes = {
   sm: 640,
   md: 768,
@@ -6,7 +8,7 @@ export const screenSizes = {
 };
 
 export const mediaQueries = {
-  mdAndUp: `(min-width: ${screenSizes.md / 16}rem)`,
-  lgAndUp: `(min-width: ${screenSizes.lg / 16}rem)`,
-  xlAndUp: `(min-width: ${screenSizes.xl / 16}rem)`,
+  mdAndUp: `(min-width: ${pxToRem(screenSizes.md)})`,
+  lgAndUp: `(min-width: ${pxToRem(screenSizes.lg)})`,
+  xlAndUp: `(min-width: ${pxToRem(screenSizes.xl)})`,
 };
