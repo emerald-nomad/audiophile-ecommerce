@@ -1,6 +1,6 @@
 "use client";
 
-import { pxToRem } from "@/lib/css-helpers";
+import { pxToRem } from "@/lib/utils";
 import styled, { css } from "styled-components";
 
 export const Button = styled.button<{ type: "filled" | "outline" | "clear" }>`

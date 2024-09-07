@@ -1,7 +1,7 @@
 "use client";
 
 import { mediaQueries } from "@/lib";
-import { pxToRem } from "@/lib/css-helpers";
+import { pxToRem } from "@/lib/utils";
 import styled, { createGlobalStyle } from "styled-components";
 
 export const MobileNavStyles = createGlobalStyle`

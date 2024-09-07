@@ -1,6 +1,6 @@
 "use client";
 import { mediaQueries } from "@/lib";
-import { pxToRem } from "@/lib/css-helpers";
+import { pxToRem } from "@/lib/utils";
 import styled from "styled-components";
 
 export const HeroWrapper = styled.div`

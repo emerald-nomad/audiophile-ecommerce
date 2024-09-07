@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { HeroContent, HeroWrapper } from "./styled-components";
-import desktopHeroImage from "@/assets/home/desktop/hero.png";
 import { Button } from "../Button";
 import Link from "next/link";
 

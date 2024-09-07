@@ -1,6 +1,6 @@
 "use client";
 
-import { DEFAULT_FONT_SIZE_IN_PX, pxToRem } from "@/lib/css-helpers";
+import { DEFAULT_FONT_SIZE_IN_PX, pxToRem } from "@/lib/utils";
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
@@ -14,8 +14,7 @@ export default createGlobalStyle`
         --color-off-black: hsl(0, 0%, 6%);
         --color-grey: #979797;
 
-        
-        font-size: ${DEFAULT_FONT_SIZE_IN_PX}px;
+        font-size: clamp(1rem, 4vw - 2.25rem, 1.25rem);
     }
 
     *,
@@ -97,7 +96,7 @@ export default createGlobalStyle`
     }
 
     body {
-        font-size: 1rem;
+        
         line-height: ${pxToRem(25)};
         font-weight: 500;
     }
