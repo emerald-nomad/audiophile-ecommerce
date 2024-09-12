@@ -8,7 +8,7 @@ export const HeroWrapper = styled.div`
   --radial-gradient-values: circle, transparent 60%, var(--color-black) 80%;
   --height: 132vw;
   --background-position-y: -22vw;
-  --background-image: url("/images/mobile/hero.png");
+  --background-image: url("/images/home/mobile/hero.png");
 
   position: relative;
   height: var(--height);
@@ -39,7 +39,7 @@ export const HeroWrapper = styled.div`
 
   @media ${mediaQueries.mdAndUp} {
     --height: 83vw;
-    --background-image: url("/images/tablet/hero.png");
+    --background-image: url("/images/home/tablet/hero.png");
     --background-position-y: -12vw;
   }
 
@@ -48,7 +48,7 @@ export const HeroWrapper = styled.div`
     --radiel-gradient-position: 67vw 17vw;
     --radial-gradient-values: circle, transparent 0, var(--color-black) 40%;
     --background-position-y: -7vw;
-    --background-image: url("/images/desktop/hero.png");
+    --background-image: url("/images/home/desktop/hero.png");
   }
 `;
 
