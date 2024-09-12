@@ -1,6 +1,5 @@
 import { Kysely, sql } from "kysely";
 import {
-  IMAGE_TYPE_ENUM_NAME,
   PRODUCT_GALLERY_IMAGE_TABLE_NAME,
   PRODUCT_IMAGE_TABLE_NAME,
   PRODUCT_PREVIEW_IMAGE_TABLE_NAME,
@@ -18,7 +17,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   for await (const tableName of tablesToAddColumn) {
     await db.schema
       .alterTable(tableName)
-      .addColumn("image_type", sql`"ImageType"`)
+      .addColumn("image_type", sql`audiophile."ImageType"`)
       .execute();
   }
 }

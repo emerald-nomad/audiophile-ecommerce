@@ -1,22 +1,8 @@
-import { Kysely, PostgresDialect } from "kysely";
-import { Database } from "../models/database";
 import data from "./data.json";
-import { Pool } from "pg";
 import { ImageTypeEnum } from "../models/enums";
+import { db } from "../db";
 
 async function main() {
-  const db = new Kysely<Database>({
-    dialect: new PostgresDialect({
-      pool: new Pool({
-        host: "localhost",
-        user: "postgres",
-        password: "postgres",
-        database: "postgres",
-        port: 5432,
-      }),
-    }),
-  });
-
   const categories = await db
     .insertInto("category")
     .values([

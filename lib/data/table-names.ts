@@ -1,3 +1,6 @@
+// Schema Name
+export const SCHEMA_NAME = "audiophile"
+
 // Enum Names
 export const IMAGE_TYPE_ENUM_NAME = "ImageType";
 

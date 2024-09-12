@@ -1,14 +1,16 @@
 import * as path from "path";
-import { Pool } from "pg";
 import { promises as fs } from "fs";
 import {
-  Kysely,
   Migrator,
-  PostgresDialect,
   FileMigrationProvider,
   CreateTableBuilder,
   sql,
+  Kysely,
+  PostgresDialect,
 } from "kysely";
+import { Pool } from "pg";
+import { SCHEMA_NAME } from "../table-names";
+import { db } from "../db";
 
 declare module "kysely" {
   interface CreateTableBuilder<TB extends string, C extends string = never> {
@@ -27,20 +29,11 @@ CreateTableBuilder.prototype.addIdColumn = function (
 };
 
 async function migrateToLatest() {
-  const db = new Kysely<any>({
-    dialect: new PostgresDialect({
-      pool: new Pool({
-        host: "localhost",
-        user: "postgres",
-        password: "postgres",
-        database: "postgres",
-        port: 5432,
-      }),
-    }),
-  });
+  
 
   const migrator = new Migrator({
     db,
+    migrationTableSchema: SCHEMA_NAME,
     provider: new FileMigrationProvider({
       fs,
       path,
@@ -48,6 +41,7 @@ async function migrateToLatest() {
       migrationFolder: path.join(__dirname, "../migrations"),
     }),
   });
+
 
   const { error, results } = await migrator.migrateToLatest();
 

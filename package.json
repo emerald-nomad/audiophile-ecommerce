@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrations": "npx tsx ./lib/data/scripts/migrations.ts",
-    "seed": "npx tsx ./lib/data/scripts/seed.ts"
+    "migrations": "dotenv -e .env.local -- npx tsx ./lib/data/scripts/migrations.ts",
+    "seed": "dotenv -e .env.local -- npx tsx ./lib/data/scripts/seed.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.3",
+    "@vercel/postgres-kysely": "^0.10.0",
     "kysely": "^0.27.4",
     "next": "14.2.7",
     "pg": "^8.12.0",
@@ -24,6 +25,7 @@
     "@types/pg": "^8.11.8",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "dotenv-cli": "^7.4.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
     "ts-node": "^10.9.2",

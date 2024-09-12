@@ -1,12 +1,12 @@
-import { Button } from "@/components";
+
+import { CategoryLinks } from "@/components/CategoryLinks";
 import { Hero } from "@/components/Hero";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <p>Testing</p>
+      <CategoryLinks />
     </main>
   );
 }
