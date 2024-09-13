@@ -3,34 +3,39 @@ import { ImageTypeEnum } from "../models/enums";
 import { db } from "../db";
 
 async function main() {
-  const categories = await db
+   await db
     .insertInto("category")
     .values([
       { name: "earphones", slug: "earphones" },
       { name: "headphones", slug: "headphones" },
       { name: "speakers", slug: "speakers" },
     ])
-    .returningAll()
     .execute();
 
-  function findCategoryIdByName(name: string) {
-    return categories.find((c) => (c.name = name))!.id;
-  }
+  const categories = await db.selectFrom('category').selectAll().execute();
+  const mappedCategories = new Map(categories.map(c => [c.name, c.id]))
+
+  console.log({
+    mappedCategories,
+    earphones: mappedCategories.get("earphones"), 
+    headphones: mappedCategories.get("headphones"),
+    speakers: mappedCategories.get("speakers"),
+  })
 
   // Category Image
   await db
     .insertInto("category_image")
     .values([
       {
-        category_id: findCategoryIdByName("earphones"),
+        category_id: mappedCategories.get("earphones")!,
         url: "/images/shared/desktop/image-category-thumbnail-earphones.png",
       },
       {
-        category_id: findCategoryIdByName("headphones"),
+        category_id: mappedCategories.get("headphones")!,
         url: "/images/shared/desktop/image-category-thumbnail-headphones.png",
       },
       {
-        category_id: findCategoryIdByName("speakers"),
+        category_id: mappedCategories.get("speakers")!,
         url: "/images/shared/desktop/image-category-thumbnail-speakers.png",
       },
     ])
@@ -41,7 +46,7 @@ async function main() {
     const product = await db
       .insertInto("product")
       .values({
-        category_id: findCategoryIdByName(item.category),
+        category_id: mappedCategories.get(item.category)!,
         description: item.description,
         features: item.features,
         name: item.name,

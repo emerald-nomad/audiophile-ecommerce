@@ -5,8 +5,8 @@ export const audiophileRepository = {
   getCategories: cache(async function () {
     const categories = await db
       .selectFrom("category")
-      .innerJoin("category_image", "category.id", "category_image.category_id")
-      .select(['category.id', 'category.name', 'category.slug', 'category_image.url as imageUrl'])
+      .leftJoin("category_image", "category.id", "category_image.category_id")
+      .select(['category.id as id', 'category.name as name', 'category.slug as slug', 'category_image.url as imageUrl'])
       .execute();
 
     return categories;
