@@ -1,4 +1,3 @@
-
 import { CategoryLinks } from "@/components/CategoryLinks";
 import { Hero } from "@/components/Hero";
 

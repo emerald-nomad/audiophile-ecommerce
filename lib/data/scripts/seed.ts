@@ -17,6 +17,25 @@ async function main() {
     return categories.find((c) => (c.name = name))!.id;
   }
 
+  // Category Image
+  await db
+    .insertInto("category_image")
+    .values([
+      {
+        category_id: findCategoryIdByName("earphones"),
+        url: "/images/shared/desktop/image-category-thumbnail-earphones.png",
+      },
+      {
+        category_id: findCategoryIdByName("headphones"),
+        url: "/images/shared/desktop/image-category-thumbnail-headphones.png",
+      },
+      {
+        category_id: findCategoryIdByName("speakers"),
+        url: "/images/shared/desktop/image-category-thumbnail-speakers.png",
+      },
+    ])
+    .execute();
+
   for (const item of data) {
     // Product
     const product = await db
@@ -41,8 +60,8 @@ async function main() {
         imageType === "mobile"
           ? ImageTypeEnum.Mobile
           : imageType === "tablet"
-          ? ImageTypeEnum.Tablet
-          : ImageTypeEnum.Desktop;
+            ? ImageTypeEnum.Tablet
+            : ImageTypeEnum.Desktop;
 
       const url = item.image[imageType].replace("./assets", "/images");
 
@@ -62,8 +81,8 @@ async function main() {
         previewImageType === "mobile"
           ? ImageTypeEnum.Mobile
           : previewImageType === "tablet"
-          ? ImageTypeEnum.Tablet
-          : ImageTypeEnum.Desktop;
+            ? ImageTypeEnum.Tablet
+            : ImageTypeEnum.Desktop;
 
       const url = item.image[previewImageType].replace("./assets", "/images");
 
@@ -86,7 +105,7 @@ async function main() {
           product_id: product!.id,
           name: i.item,
           quantity: i.quantity,
-        }))
+        })),
       )
       .execute();
 
@@ -110,12 +129,12 @@ async function main() {
           relatedProductImageType === "mobile"
             ? ImageTypeEnum.Mobile
             : relatedProductImageType === "tablet"
-            ? ImageTypeEnum.Tablet
-            : ImageTypeEnum.Desktop;
+              ? ImageTypeEnum.Tablet
+              : ImageTypeEnum.Desktop;
 
         const url = other.image[relatedProductImageType].replace(
           "./assets",
-          "/images"
+          "/images",
         );
 
         relatedProductImages.push({
@@ -138,8 +157,8 @@ async function main() {
         galleryImageOrder === "first"
           ? 1
           : galleryImageOrder === "second"
-          ? 2
-          : 3;
+            ? 2
+            : 3;
 
       let galleryImageType: keyof (typeof item.gallery)[typeof galleryImageOrder];
       for (galleryImageType in item.gallery[galleryImageOrder]) {
@@ -147,12 +166,12 @@ async function main() {
           galleryImageType === "mobile"
             ? ImageTypeEnum.Mobile
             : galleryImageType === "tablet"
-            ? ImageTypeEnum.Tablet
-            : ImageTypeEnum.Desktop;
+              ? ImageTypeEnum.Tablet
+              : ImageTypeEnum.Desktop;
 
         const url = item.gallery[galleryImageOrder][galleryImageType].replace(
           "./assets",
-          "/images"
+          "/images",
         );
 
         galleryImages.push({

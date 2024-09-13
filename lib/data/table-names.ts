@@ -1,11 +1,12 @@
 // Schema Name
-export const SCHEMA_NAME = "audiophile"
+export const SCHEMA_NAME = "audiophile";
 
 // Enum Names
 export const IMAGE_TYPE_ENUM_NAME = "ImageType";
 
 // Table Names
 export const CATEGORY_TABLE_NAME = "category";
+export const CATEGORY_IMAGE_TABLE_NAME = "category_image";
 export const PRODUCT_TABLE_NAME = "product";
 export const PRODUCT_PREVIEW_IMAGE_TABLE_NAME = "product_preview_image";
 export const PRODUCT_IMAGE_TABLE_NAME = "product_image";

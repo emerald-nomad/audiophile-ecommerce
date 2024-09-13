@@ -9,11 +9,13 @@ import {
   PRODUCT_GALLERY_IMAGE_TABLE_NAME,
   RELATED_PRODUCT_TABLE_NAME,
   RELATED_PRODUCT_IMAGE_TABLE_NAME,
+  CATEGORY_IMAGE_TABLE_NAME,
 } from "../table-names";
 
 export async function up(db: Kysely<any>): Promise<void> {
   await databaseTypesMigration.up(db);
   await categoryTableMigration.up(db);
+  await categoryImageTableMigration.up(db);
   await productTableMigration.up(db);
   await productPreviewImageTableMigration.up(db);
   await productImageTableMigration.up(db);
@@ -31,6 +33,7 @@ export async function down(db: Kysely<any>): Promise<void> {
   await productImageTableMigration.down(db);
   await productPreviewImageTableMigration.down(db);
   await productTableMigration.down(db);
+  await categoryImageTableMigration.down(db);
   await categoryTableMigration.down(db);
   await databaseTypesMigration.down(db);
 }
@@ -52,12 +55,32 @@ const categoryTableMigration = {
     await db.schema
       .createTable(CATEGORY_TABLE_NAME)
       .addIdColumn()
-      .addColumn("name", "text")
-      .addColumn("slug", "text")
+      .addColumn("name", "text", (col) => col.unique())
+      .addColumn("slug", "text", (col) => col.unique())
       .execute();
   },
   async down(db: Kysely<any>) {
     await db.schema.dropTable(CATEGORY_TABLE_NAME).execute();
+  },
+};
+
+const categoryImageTableMigration = {
+  async up(db: Kysely<any>) {
+    await db.schema
+      .createTable(CATEGORY_IMAGE_TABLE_NAME)
+      .addIdColumn()
+      .addColumn("url", "text")
+      .addColumn("category_id", "uuid")
+      .addForeignKeyConstraint(
+        "category_image_category_foreign",
+        ["category_id"],
+        CATEGORY_TABLE_NAME,
+        ["id"],
+      )
+      .execute();
+  },
+  async down(db: Kysely<any>) {
+    await db.schema.dropTable(CATEGORY_IMAGE_TABLE_NAME).execute();
   },
 };
 
@@ -66,8 +89,8 @@ const productTableMigration = {
     await db.schema
       .createTable(PRODUCT_TABLE_NAME)
       .addIdColumn()
-      .addColumn("slug", "text")
-      .addColumn("name", "text")
+      .addColumn("slug", "text", (col) => col.unique())
+      .addColumn("name", "text", (col) => col.unique())
       .addColumn("new", "boolean")
       .addColumn("price", "integer")
       .addColumn("description", "text")
@@ -77,7 +100,7 @@ const productTableMigration = {
         "product_category_foreign",
         ["category_id"],
         CATEGORY_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },
@@ -97,7 +120,7 @@ const productPreviewImageTableMigration = {
         "product_preview_image_product_foreign",
         ["product_id"],
         PRODUCT_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },
@@ -117,7 +140,7 @@ const productImageTableMigration = {
         "product_image_product_foreign",
         ["product_id"],
         PRODUCT_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },
@@ -138,7 +161,7 @@ const productIncludedItemTableMigration = {
         "product_included_item_product_foreign",
         ["product_id"],
         PRODUCT_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },
@@ -159,7 +182,7 @@ const productGalleryImageTableMigration = {
         "product_gallery_image_product_foreign",
         ["product_id"],
         PRODUCT_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },
@@ -180,7 +203,7 @@ const relatedProductMigration = {
         "related_product_product_foreign",
         ["product_id"],
         PRODUCT_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },
@@ -200,7 +223,7 @@ const relatedProductImageTableMigration = {
         "related_product_image_related_product_foreign",
         ["related_product_id"],
         RELATED_PRODUCT_TABLE_NAME,
-        ["id"]
+        ["id"],
       )
       .execute();
   },

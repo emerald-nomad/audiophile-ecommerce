@@ -7,8 +7,10 @@ import {
   PRODUCT_GALLERY_IMAGE_TABLE_NAME,
   RELATED_PRODUCT_TABLE_NAME,
   RELATED_PRODUCT_IMAGE_TABLE_NAME,
+  CATEGORY_IMAGE_TABLE_NAME,
 } from "../table-names";
 import { CategoryTable } from "./category";
+import { CategoryImage } from "./category-image";
 import { ProductTable } from "./product";
 import { ProductGalleryImageTable } from "./product-gallery-image";
 import { ProductImageTable } from "./product-image";
@@ -19,6 +21,7 @@ import { RelatedProductImageTable } from "./related-product-image";
 
 export interface Database {
   [CATEGORY_TABLE_NAME]: CategoryTable;
+  [CATEGORY_IMAGE_TABLE_NAME]: CategoryImage;
   [PRODUCT_TABLE_NAME]: ProductTable;
   [PRODUCT_PREVIEW_IMAGE_TABLE_NAME]: ProductPreviewImageTable;
   [PRODUCT_IMAGE_TABLE_NAME]: ProductImageTable;

@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   CartIconWrapper,
@@ -16,8 +14,11 @@ import hamburgerIcon from "@/assets/shared/tablet/icon-hamburger.svg";
 import logoIcon from "@/assets/shared/desktop/logo.svg";
 import Link from "next/link";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { audiophileRepository } from "@/lib/data/auidiophile-repository";
 
-export function Header() {
+export async function Header() {
+  const categories = await audiophileRepository.getCategories();
+
   return (
     <Menu>
       <MobileNavStyles />
@@ -61,9 +62,11 @@ export function Header() {
           </LogoIconWrapper>
           <NavigationWrapper>
             <Link href="/">Home</Link>
-            <Link href="/headphones">Headphones</Link>
-            <Link href="/speakers">Speakers</Link>
-            <Link href="/earphones">Earphones</Link>
+            {categories.map((c) => (
+              <Link key={c.id} href={`/${c.slug}`}>
+                {c.name}
+              </Link>
+            ))}
           </NavigationWrapper>
           <CartIconWrapper>
             <Image src={cartIcon} alt="Toggle menu icon" />
