@@ -10,7 +10,7 @@ export const MobileNavStyles = createGlobalStyle`
         left: 0 !important;
         right: 0 !important;
         bottom: 0;
-        background-color: rgba(0, 0, 0, .25);
+        background-color: rgba(0, 0, 0, .5);
     }
 `;
 
@@ -50,7 +50,23 @@ export const HamburgerIconWrapper = styled.div`
 `;
 
 export const MenuItemsWrapper = styled.ul`
+  --menu-item-wrapper-flex-direction: column;
+  --menu-item-wrapper-gap: 7rem;
+  --menu-item-wrapper-padding: 6rem 1rem 2rem;
+
   background-color: var(--color-white);
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  padding: var(--menu-item-wrapper-padding);
+  display: flex;
+  flex-direction: var(--menu-item-wrapper-flex-direction);
+  gap: var(--menu-item-wrapper-gap);
+
+  @media ${mediaQueries.mdAndUp} {
+    --menu-item-wrapper-flex-direction: row;
+    --menu-item-wrapper-gap: 1rem;
+    --menu-item-wrapper-padding: 6rem 2rem 3rem;
+  }
 `;
 
 export const LogoIconWrapper = styled.div`

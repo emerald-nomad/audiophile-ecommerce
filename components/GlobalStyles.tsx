@@ -13,6 +13,7 @@ export default createGlobalStyle`
         --color-black: hsl(0, 0%, 0%);
         --color-off-black: hsl(0, 0%, 6%);
         --color-grey: #979797;
+        --color-light-grey: hsl(0, 0%, 95%);
 
         font-size: clamp(1rem, 4vw - 2.25rem, 1.25rem);
     }

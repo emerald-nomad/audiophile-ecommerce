@@ -11,6 +11,7 @@ export const HeroWrapper = styled.div`
   --background-image: url("/images/home/mobile/hero.png");
 
   position: relative;
+  isolation: isolate;
   height: var(--height);
   background-color: var(--color-black);
   background-image: var(--background-image);

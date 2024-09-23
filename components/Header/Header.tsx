@@ -15,6 +15,8 @@ import logoIcon from "@/assets/shared/desktop/logo.svg";
 import Link from "next/link";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { audiophileRepository } from "@/lib/data/auidiophile-repository";
+import { CategoryLinks } from "../CategoryLinks";
+import { CategoryLink } from "../CategoryLinks/CategoryLink";
 
 export async function Header() {
   const categories = await audiophileRepository.getCategories();
@@ -32,10 +34,10 @@ export async function Header() {
             <MenuItems
               id="mobile-nav"
               anchor="bottom start"
-              className="[--anchor-gap:4px] sm:[--anchor-gap:8px]"
+              // className="[--anchor-gap:4px] sm:[--anchor-gap:8px]"
             >
               <MenuItemsWrapper>
-                <MenuItem>
+                {/* <MenuItem>
                   <a
                     className="block data-[focus]:bg-blue-100"
                     href="/settings"
@@ -52,7 +54,8 @@ export async function Header() {
                   <a className="block data-[focus]:bg-blue-100" href="/license">
                     License
                   </a>
-                </MenuItem>
+                </MenuItem> */}
+                 {categories.map(c => <CategoryLink key={c.id} {...c} imageUrl={c.imageUrl!} />)}
               </MenuItemsWrapper>
             </MenuItems>
           </HamburgerIconWrapper>
