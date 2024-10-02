@@ -3,7 +3,7 @@ import { ImageTypeEnum } from "../models/enums";
 import { db } from "../db";
 
 async function main() {
-   await db
+  await db
     .insertInto("category")
     .values([
       { name: "earphones", slug: "earphones" },
@@ -12,15 +12,15 @@ async function main() {
     ])
     .execute();
 
-  const categories = await db.selectFrom('category').selectAll().execute();
-  const mappedCategories = new Map(categories.map(c => [c.name, c.id]))
+  const categories = await db.selectFrom("category").selectAll().execute();
+  const mappedCategories = new Map(categories.map((c) => [c.name, c.id]));
 
   console.log({
     mappedCategories,
-    earphones: mappedCategories.get("earphones"), 
+    earphones: mappedCategories.get("earphones"),
     headphones: mappedCategories.get("headphones"),
     speakers: mappedCategories.get("speakers"),
-  })
+  });
 
   // Category Image
   await db

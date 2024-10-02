@@ -31,37 +31,24 @@ export async function Header() {
               <Image src={hamburgerIcon} alt="Toggle menu icon" />
             </MenuButton>
 
-            <MenuItems
-              id="mobile-nav"
-              anchor="bottom start"
-              // className="[--anchor-gap:4px] sm:[--anchor-gap:8px]"
-            >
+            <MenuItems id="mobile-nav" anchor="bottom start">
               <MenuItemsWrapper>
-                {/* <MenuItem>
-                  <a
-                    className="block data-[focus]:bg-blue-100"
-                    href="/settings"
-                  >
-                    Settings
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a className="block data-[focus]:bg-blue-100" href="/support">
-                    Support
-                  </a>
-                </MenuItem>
-                <MenuItem>
-                  <a className="block data-[focus]:bg-blue-100" href="/license">
-                    License
-                  </a>
-                </MenuItem> */}
-                 {categories.map(c => <CategoryLink key={c.id} {...c} imageUrl={c.imageUrl!} />)}
+                {categories.map((c) => (
+                  <CategoryLink
+                    key={c.id}
+                    {...c}
+                    imageUrl={c.imageUrl!}
+                    inMenu={false}
+                  />
+                ))}
               </MenuItemsWrapper>
             </MenuItems>
           </HamburgerIconWrapper>
 
           <LogoIconWrapper>
-            <Image src={logoIcon} alt="Toggle menu icon" />
+            <Link href="/">
+              <Image src={logoIcon} alt="Toggle menu icon" />
+            </Link>
           </LogoIconWrapper>
           <NavigationWrapper>
             <Link href="/">Home</Link>

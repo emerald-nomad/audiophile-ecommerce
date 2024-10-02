@@ -6,7 +6,12 @@ export const audiophileRepository = {
     const categories = await db
       .selectFrom("category")
       .leftJoin("category_image", "category.id", "category_image.category_id")
-      .select(['category.id as id', 'category.name as name', 'category.slug as slug', 'category_image.url as imageUrl'])
+      .select([
+        "category.id as id",
+        "category.name as name",
+        "category.slug as slug",
+        "category_image.url as imageUrl",
+      ])
       .execute();
 
     return categories;

@@ -55,8 +55,8 @@ export const MenuItemsWrapper = styled.ul`
   --menu-item-wrapper-padding: 6rem 1rem 2rem;
 
   background-color: var(--color-white);
-  border-bottom-left-radius: .5rem;
-  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   padding: var(--menu-item-wrapper-padding);
   display: flex;
   flex-direction: var(--menu-item-wrapper-flex-direction);
@@ -70,8 +70,11 @@ export const MenuItemsWrapper = styled.ul`
 `;
 
 export const LogoIconWrapper = styled.div`
-  display: flex;
   margin: auto;
+
+  & a {
+    display: flex;
+  }
 
   @media ${mediaQueries.mdAndUp} {
     margin-left: 3rem;

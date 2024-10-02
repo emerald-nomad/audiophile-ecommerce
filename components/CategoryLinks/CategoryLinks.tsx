@@ -4,9 +4,12 @@ import { CategoryLink } from "./CategoryLink";
 
 export async function CategoryLinks() {
   const categories = await audiophileRepository.getCategories();
-  
-  return <CategoryLinksContainer>
-    {categories.map(c => <CategoryLink key={c.id} {...c} imageUrl={c.imageUrl!} />)}
-  </CategoryLinksContainer>
-}
 
+  return (
+    <CategoryLinksContainer>
+      {categories.map((c) => (
+        <CategoryLink key={c.id} {...c} imageUrl={c.imageUrl!} />
+      ))}
+    </CategoryLinksContainer>
+  );
+}
